@@ -1,0 +1,7 @@
+f = open("images.html").readlines(  )
+r_read = open("images.html").read()
+count = len(f)
+input = raw_input("Enter what string to search for - ")
+print ("Total lines: " + str(count))
+occ = r_read.count(input)
+print (input.upper() + " Occurences: " + str(occ))
