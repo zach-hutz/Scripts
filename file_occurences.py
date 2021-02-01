@@ -1,5 +1,6 @@
-f = open("images.html").readlines(  )
-r_read = open("images.html").read()
+file_in = raw_input("Enter FileName: ")
+f = open(file_in).readlines(  )
+r_read = open(file_in).read()
 count = len(f)
 input = raw_input("Enter what string to search for - ")
 print ("Total lines: " + str(count))
