@@ -1,5 +1,8 @@
 # define imports
 import re
+from ipwhois import IPWhois
+
+domain_list = ["Yahoo", "YAHOO"]
 
 while True:
     # create intro banner
@@ -57,7 +60,17 @@ while True:
     # perform checks to make sure that correct ip address is filled in
     if user_in != "":
         if is_valid_ipv4():
-            print(user_in)
+            obj = IPWhois(user_in)
+            result = obj.lookup_whois()
+            print("-------- Raw Output --------")
+            print ("      "+user_in+"          ")
+            print(result)
+            result_list = list(result.values())
+            print (result_list)
+            if domain_list in result_list:
+                print(">> This email originated from Yahoo!")
+            else:
+                print(">! This email may not have originated from Yahoo!")
             break
         else:
             print("> Please enter a valid IP Address!")
