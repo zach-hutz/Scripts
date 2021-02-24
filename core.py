@@ -65,14 +65,18 @@ while True:
             print(result)
             result_list = list(result.values())
             result_string = ''.join(str(result_list)).lower()
+            name_result = result.get("asn_description")
+            created_result = result.get("asn_date")
+            print(">> COMPANY: " + name_result)
+            print(">> ASSIGNED DATE: " + str(created_result))
             if "yahoo" in result_string:
                 print(">> Valid Yahoo Address!")
             else:
                 print(">> Email may not have originated from Yahoo!")
             break
         else:
-            print("> Please enter a valid IP Address!")
+            print("[Error] - Please enter a valid IP Address!")
             continue
     else:
-        print("> Please enter an IP Address!")
+        print("[Error] - Please enter an IP Address!")
         continue
