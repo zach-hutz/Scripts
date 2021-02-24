@@ -2,8 +2,6 @@
 import re
 from ipwhois import IPWhois
 
-domain_list = ["Yahoo", "YAHOO"]
-
 while True:
     # create intro banner
     def start():
@@ -63,14 +61,14 @@ while True:
             obj = IPWhois(user_in)
             result = obj.lookup_whois()
             print("-------- Raw Output --------")
-            print ("      "+user_in+"          ")
+            print("      "+user_in+"          ")
             print(result)
             result_list = list(result.values())
-            print (result_list)
-            if domain_list in result_list:
-                print(">> This email originated from Yahoo!")
+            result_string = ''.join(str(result_list)).lower()
+            if "yahoo" in result_string:
+                print(">> Valid Yahoo Address!")
             else:
-                print(">! This email may not have originated from Yahoo!")
+                print(">> Email may not have originated from Yahoo!")
             break
         else:
             print("> Please enter a valid IP Address!")
